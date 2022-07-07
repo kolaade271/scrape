@@ -16,7 +16,7 @@ import re
 
 
 app = Flask(__name__)
-@app.route('/url/', methods=['GET', 'POST', 'DELETE'])
+@app.route('/', methods=['GET', 'POST', 'DELETE'])
 def message():
     url = request.args.get('url')
     options = webdriver.ChromeOptions() 
