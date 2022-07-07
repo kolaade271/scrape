@@ -21,7 +21,6 @@ mock==3.0.5
 mock-open==1.4.0
 py2app==0.7.3
 pycparser==2.19
-requests==2.27.1
 scipy==0.13.0b1
 selenium==3.3.0
 six==1.12.0
