@@ -19,11 +19,12 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST', 'DELETE'])
 def message():
     url = request.args.get('url')
-    options = webdriver.ChromeOptions() 
-    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    options.add_argument("--headless")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-sh-usage")
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     # options.add_argument("start-maximized")
     # options.add_argument("--auto-open-devtools-for-tabs")
     # options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -31,7 +32,6 @@ def message():
     # PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
     # DRIVER_BIN = os.path.join(PROJECT_ROOT, "chromedriver")
     # driver = webdriver.Chrome(DRIVER_BIN)
-    driver = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
     
     domain = urlparse(url).netloc
     if domain == "m.1688.com" or  domain == "detail.1688.com":
