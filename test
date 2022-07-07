@@ -1,0 +1,6 @@
+fruits = ["pineapple","apple", "banana", "cherry"]
+for x in fruits:
+
+  a=(x[0])
+print(fruits[0])
+# fron 2 to 30 by 3 step

@@ -1,0 +1,6 @@
+const scrape = require('aliexpress-product-scraper');
+const product = scrape('1005004247772574');
+
+product.then(res => {
+  console.log('The JSON: ', res);
+});
